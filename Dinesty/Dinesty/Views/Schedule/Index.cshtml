@@ -1,0 +1,161 @@
+﻿@model IEnumerable<Dinesty.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <h1 style="display:inline-block">
+        Available Time OverView
+    </h1>
+    <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModal" style="margin-bottom:15px;">
+        <span class="glyphicon glyphicon-info-sign" style="font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></span>
+    </button>
+</div>
+
+<br>
+<h2>Morning</h2>
+<table class="table" id="employee">
+    <tr>
+        <th>Name:</th>
+        <th>Monday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @if (item.MonM)
+                    {
+                        @item.MonM  
+                    }
+                </td>
+                <td>
+                    @if (item.WesM)
+                    {
+                        @item.WesM
+}
+                </td>
+                <td>
+                    @if (item.ThuM)
+                    {
+                        @item.ThuM
+}
+                </td>
+                <td>
+                    @if (item.FriM)
+                    {
+                        @item.FriM
+}
+                </td>
+                <td>
+                   @if (item.SatM)
+                    {
+                        @item.SatM  
+                    }
+                </td>
+                <td>
+                    @if (item.SunM)
+                    {
+                        @item.SunM
+                     } 
+                </td>
+            </tr>
+    }
+
+
+
+</table>
+<br/><br/>
+<h2>Night</h2>
+<table class="table" id="employee">
+    <tr>
+        <th>Name:</th>
+        <th>Monday</th>
+        <th>Wednesday</th>
+        <th>Thusday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @if (item.MonN)
+                {
+                    @item.MonN
+}
+            </td>
+            <td>
+                @if (item.WesN)
+                {
+                    @item.WesN
+}
+            </td>
+            <td>
+                @if (item.ThuN)
+                {
+                    @item.ThuN
+}
+            </td>
+            <td>
+                @if (item.FriN)
+                {
+                    @item.FriN
+}
+            </td>
+            <td>
+                @if (item.SatN)
+                {
+                    @item.SatN
+}
+            </td>
+            <td>
+                @if (item.SunN)
+                {
+                    @item.SunN
+}
+            </td>
+        </tr>
+    }
+</table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold; font-size:1.4em; text-align:center">Instruction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <br>
+                <ul>
+                    <li>Two tables: Top one is for morning, bottom is for night</li>
+                    <li>True: Available</li>
+                    <li>Blank: Not Available</li>
+                </ul>
+                <br><br>
+                <p style="color:lightblue">Not much things to explan in this page; Any more Questions just call me~~<br>
+                <p style="color:mediumpurple">I love Cyan and Lilac
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/myCss.css">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/MyScript/site.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("DINESTY", "Index", "Employees", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="font-size:1.1em;">
+                    <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                    <li>@Html.ActionLink("Avalible Time", "Index", "Schedule")</li>
+                    <li>@Html.ActionLink("Schedule", "ConfirmNum", "Schedule")</li>
+                    <li>@Html.ActionLink("Report", "FinalSchedule", "Schedule")</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+
+    <div style="position: fixed;left: 0;bottom: 0;width: 100%;height:5%;background-color: #222222;color: #999999;text-align: center; font-size:1em;">
+        <p style="padding-top:10px;">&copy; @DateTime.Now.Year - My DINESTY ASP.NET Application. Developed by Hugh & Faye</p>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

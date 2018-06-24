@@ -1,0 +1,44 @@
+﻿@model Dinesty.Models.FinalReport
+@{
+    ViewBag.Title = "FinalSchedule";
+}
+
+<h2>FinalSchedule</h2>
+
+
+<table class="table">
+    <tr>
+        <th>Day</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.myWorkSchedule)
+    {
+        if (Model.fe.Warningdays.Contains(item.day))
+        {
+            <tr class="danger">
+                <td>
+                    @item.day
+                </td>
+                @foreach (var name in item.emp)
+                {
+                    <td>@name </td>
+}
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>
+                    @item.day
+                </td>
+                @foreach (var name in item.emp)
+                {
+                    <td>@name </td>
+}
+            </tr>
+        }
+
+    }
+</table>
+<br><br><br>

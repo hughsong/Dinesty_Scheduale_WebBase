@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Dinesty.Models.WorkingDay>
+@{
+    ViewBag.Title = "ConfirmNum";
+}
+
+<div>
+    <h1 style="display:inline-block">
+        Generate Reasonable Schedules
+    </h1>
+    <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModal" style="margin-bottom:15px;">
+        <span class="glyphicon glyphicon-info-sign" style="font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></span>
+    </button>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Day
+        </th>
+        <th>
+            Morning
+        </th>
+        <th>
+            Night
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Morning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Night)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.WorkingDayId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br/><br /><br />
+<div  style="display:block;width:100px;height:30px;border: 2px solid darkCyan; border-radius: 5px;">
+    @Html.ActionLink("Start Generate", "Generate")
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold; font-size:1.4em; text-align:center">Instruction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <br>
+                <h4 style="font-weight:bold; color:red">Warming: </h4>
+                <ul>
+                    <li>The Spelling of day cannot be changed! Case-sensitive</li>
+                    <li>Cannot add Tuesday by yourself.</li>
+                    <li>If you want to add Tuesday, just let me know and I will add it directly into database.</li>
+                </ul>
+                <br>
+                <h4 style="font-weight:bold; color:red">Others: </h4>
+                <ul>
+                    <li>Number means how many colleagues you want to work on that day</li>
+                    <li>Only can setup 6,7,8</li>
+                    <li>Other number is not valid! If you also want 5 or 4, let me know.</li>
+                    <li>After you conformed numbers, click "Start Generate to get schedule."</li>
+                </ul>
+                <br><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

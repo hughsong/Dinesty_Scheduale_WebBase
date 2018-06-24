@@ -1,0 +1,152 @@
+﻿@model Dinesty.Models.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Times)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Times)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proficiency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proficiency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WesM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WesM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WesN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WesN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThuM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThuN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FriM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FriM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FriN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FriN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SatM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SatM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SatN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SatN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SunM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SunM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SunN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SunN)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

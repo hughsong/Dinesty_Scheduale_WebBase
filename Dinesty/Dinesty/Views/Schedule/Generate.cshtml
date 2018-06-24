@@ -1,0 +1,107 @@
+﻿@model Dinesty.Models.FinalReport
+@{
+    ViewBag.Title = "Generate";
+}
+<div>
+    <h1 style="display:inline-block">
+        Generation Result
+    </h1>
+    <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModal" style="margin-bottom:15px;">
+        <span class="glyphicon glyphicon-info-sign" style="font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></span>
+    </button>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Day</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.myWorkSchedule)
+    {
+        if (Model.fe.Warningdays.Contains(item.day))
+        {
+            <tr class="danger">
+                <td>
+                    @item.day
+                </td>
+                @foreach (var name in item.emp)
+                {
+                    <td>@name </td>
+                }
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>
+                    @item.day
+                </td>
+                @foreach (var name in item.emp)
+                {
+                    <td>@name </td>
+                }
+            </tr>
+        }
+
+    }
+    </table>
+<br><br><br>
+
+<div class="panel panel-danger">
+    <div class="panel-heading" style="font-size:1.5em;">Warming Message</div>
+    <div class="panel-body">
+        @foreach (var item in Model.fe.message)
+        {
+            <p style="color:darkred;">@item</p> <br>
+        }
+        <p style="color:darkred";>Please try to Generate again; Or Review working schedule and Modify employee info</p>
+    </div>
+       
+
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold; font-size:1.4em; text-align:center">Instruction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <br>
+                <h4 style="font-weight:bold;">Unique Words(Day): </h4>
+                <ul>
+                    <li>Mon: Monday;  Wed:Wednesday...</li>
+                    <li>M: Morning;  N: Night</li>
+                    <li>MonM: Monday Morningh...</li>
+                </ul>
+                <br>
+                <h4 style="font-weight:bold;">Unique Words(Position): </h4>
+                <ul>
+                    <li>O:点;  D:上;  T:桌;  *:机动</li>
+                    <li>Moti:机动 (Only appear in warning message)</li>
+                </ul>
+                <br>
+                <h4 style="font-weight:bold;">Others: </h4>
+                <ul>
+                    <li>Red line mean: The generation for that day is not perfect.</li>
+                    <li>Corresponding warning message will shows up on bottom.</li>
+                    <li>Warning message will indicate what problem in that day.</li>
+                </ul>
+               
+                <br><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

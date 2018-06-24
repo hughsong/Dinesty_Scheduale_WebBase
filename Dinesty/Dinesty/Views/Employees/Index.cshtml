@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Dinesty.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <h1 style = "display:inline-block">
+        Employee Info
+    </h1>
+    <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModal" style="margin-bottom:15px;">
+        <span class="glyphicon glyphicon-info-sign" style="font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></span>
+    </button>
+</div>
+
+<table id="employee">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Times)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proficiency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Times)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proficiency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Level)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
+        </td>
+    </tr>
+}
+
+</table>
+<br>
+<div style="display:block;width:100px;height:30px;border: 2px solid darkCyan; border-radius: 5px; padding-left:10px;">
+    @Html.ActionLink("Create New", "Create")
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold; font-size:1.4em; text-align:center">Instruction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4 style="font-weight:bold">Levels: </h4>
+                <ul>
+                    <li>S: Manager (U ^_^)</li>
+                    <li>A: Avaible for Casher and Usher</li>
+                    <li>B: Only Casher</li>
+                    <li>C: Only Usher</li>
+                    <li>D: Normal</li>
+                </ul>
+                <br>
+                <h4 style="font-weight:bold">Proficiency: </h4>
+                <ul>
+                    <li>>= 60: Could be a Moti</li>
+                    <li><= 60: Only can do Table, Deli, or Order</li>
+                    <li>Higher proficiency = higher chance be chosen as a Moti</li>
+                </ul>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
